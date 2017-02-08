@@ -12,3 +12,15 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
+.idea/.name
+.idea/gradle.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/modules/weather-app-api.iml
+.idea/vcs.xml
+.idea/workspace.xml
+build.gradle
+settings.gradle
+src/
+.idea/
