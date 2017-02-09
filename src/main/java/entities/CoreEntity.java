@@ -13,4 +13,6 @@ public abstract class CoreEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;
     protected CoreEntity() {}
+
+    public abstract long getID();
 }
