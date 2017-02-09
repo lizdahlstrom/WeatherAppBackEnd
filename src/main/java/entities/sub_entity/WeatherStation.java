@@ -35,4 +35,8 @@ public class WeatherStation extends CoreEntity {
     public List<WeatherInfo> getWeatherReports() {
         return weatherReports;
     }
+
+    public void setWeatherReports(List<WeatherInfo> weatherReports) {
+        this.weatherReports = weatherReports;
+    }
 }

@@ -34,6 +34,7 @@ public class WeatherInfo extends CoreEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "wind_direction_id")
     private WindDirection windDirection;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cloud_type_id")
     private CloudType cloudType;
@@ -104,5 +105,21 @@ public class WeatherInfo extends CoreEntity {
 
     public void setOkta(byte okta) {
         this.okta = okta;
+    }
+
+    public CloudType getCloudType() {
+        return cloudType;
+    }
+
+    public void setCloudType(CloudType cloudType) {
+        this.cloudType = cloudType;
+    }
+
+    public WindDirection getWindDirection() {
+        return windDirection;
+    }
+
+    public void setWindDirection(WindDirection windDirection) {
+        this.windDirection = windDirection;
     }
 }
