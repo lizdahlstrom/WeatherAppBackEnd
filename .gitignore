@@ -53,3 +53,5 @@ spring-*/src/main/java/META-INF/MANIFEST.MF
 out
 test-output
 atlassian-ide-plugin.xml
+gradlew.bat
+gradlew

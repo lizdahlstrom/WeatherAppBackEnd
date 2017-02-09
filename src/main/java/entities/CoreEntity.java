@@ -11,6 +11,6 @@ import javax.persistence.*;
 public abstract class CoreEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    public CoreEntity() {}
+    protected long id;
+    protected CoreEntity() {}
 }
