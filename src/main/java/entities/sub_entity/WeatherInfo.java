@@ -1,6 +1,6 @@
-package entities.sub;
+package entities.sub_entity;
 
-import entities.CoreEntity;
+import entities.super_entity.CoreEntity;
 
 import javax.persistence.Entity;
 import java.sql.Date;
@@ -20,6 +20,20 @@ public class WeatherInfo extends CoreEntity {
     private byte okta;
     private CloudType cloudType;
     private WindDirection windDirection;
+    // FK
+    private long station_id;
+
+    public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta, CloudType cloudType , WindDirection windDirection ){
+
+        this.date = date;
+        this.airPressure = airPressure;
+        this.humidity = humidity;
+        this.windForce = windForce;
+        this.cloudBase = cloudBase;
+        this.okta = okta;
+        this.cloudType = cloudType;
+        this.windDirection = windDirection;
+    }
 
     public Date getDate() {
         return date;
@@ -83,10 +97,5 @@ public class WeatherInfo extends CoreEntity {
 
     public void setWindDirection(WindDirection windDirection) {
         this.windDirection = windDirection;
-    }
-
-    @Override
-    public long getID() {
-        return id;
     }
 }

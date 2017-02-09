@@ -1,6 +1,6 @@
 package repository;
 
-import entities.sub.User;
+import entities.sub_entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**

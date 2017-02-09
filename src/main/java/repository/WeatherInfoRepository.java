@@ -1,6 +1,6 @@
 package repository;
 
-import entities.sub.WeatherInfo;
+import entities.sub_entity.WeatherInfo;
 import org.springframework.data.repository.CrudRepository;
 
 /**

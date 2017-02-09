@@ -1,6 +1,6 @@
-package entities.sub;
+package entities.sub_entity;
 
-import entities.CoreEntity;
+import entities.super_entity.CoreEntity;
 
 import javax.persistence.Entity;
 
