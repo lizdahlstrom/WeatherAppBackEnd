@@ -13,11 +13,8 @@ import javax.persistence.Entity;
 public class CloudType extends CoreEntity {
 
     public CloudType(String name, WeatherInfo weatherinfo){
-        super();
         this.name = name;
         this.weatherinfo=weatherinfo;
-
-
     }
 
     private String name;

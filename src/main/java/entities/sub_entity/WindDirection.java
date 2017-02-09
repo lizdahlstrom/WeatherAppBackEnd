@@ -11,10 +11,8 @@ import javax.persistence.Entity;
 public class WindDirection extends CoreEntity {
 
     public WindDirection(String name,WeatherInfo weatherinfo){
-        super();
         this.name= name;
         this.weatherinfo=weatherinfo;
-
     }
     private String name;
     private WeatherInfo weatherinfo;
