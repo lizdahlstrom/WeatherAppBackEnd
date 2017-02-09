@@ -4,6 +4,7 @@ import entities.super_entity.CoreEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -18,9 +19,14 @@ public class CloudType extends CoreEntity {
     @Column(name = "cloud_type_name")
     private String name;
 
+    @OneToOne(mappedBy = "cloud_type")
+    private WeatherInfo weatherInfo;
+
     public CloudType(String name){
         this.name = name;
     }
+
+
 
     public String getName() {
         return name;
@@ -28,5 +34,13 @@ public class CloudType extends CoreEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public WeatherInfo getWeatherInfo() {
+        return weatherInfo;
+    }
+
+    public void setWeatherInfo(WeatherInfo weatherInfo) {
+        this.weatherInfo = weatherInfo;
     }
 }

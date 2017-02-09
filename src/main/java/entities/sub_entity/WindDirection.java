@@ -4,6 +4,7 @@ import entities.super_entity.CoreEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,6 +16,8 @@ public class WindDirection extends CoreEntity {
 
     @Column(name = "direction")
     private String name;
+    @OneToOne(mappedBy = "wind_direction")
+    private WeatherInfo weatherInfo;
 
     public WindDirection(String name){
         this.name= name;
@@ -26,5 +29,13 @@ public class WindDirection extends CoreEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public WeatherInfo getWeatherInfo() {
+        return weatherInfo;
+    }
+
+    public void setWeatherInfo(WeatherInfo weatherInfo) {
+        this.weatherInfo = weatherInfo;
     }
 }
