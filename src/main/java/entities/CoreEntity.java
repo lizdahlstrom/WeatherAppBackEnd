@@ -14,5 +14,11 @@ public abstract class CoreEntity {
     protected long id;
     protected CoreEntity() {}
 
-    public abstract long getID();
+    public long getID() {
+        return id;
+    }
+
+    public void setID(long id) {
+        this.id = id;
+    }
 }
