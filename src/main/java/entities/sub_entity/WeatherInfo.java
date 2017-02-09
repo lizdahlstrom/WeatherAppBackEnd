@@ -2,7 +2,9 @@ package entities.sub_entity;
 
 import entities.super_entity.CoreEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Date;
 
 
@@ -10,29 +12,34 @@ import java.sql.Date;
  * Created by Michael Sjögren on 2017-02-09.
  */
 @Entity
+@Table(name = "weather_info")
 public class WeatherInfo extends CoreEntity {
 
+    @Column(name = "date")
     private Date date;
+
+    @Column(name = "air_pressure")
     private int airPressure;
+
+    @Column(name = "humidity")
     private byte humidity;
+
+    @Column(name = "wind_force")
     private double windForce;
+
+    @Column(name = "cloud_base")
     private int cloudBase;
+
+    @Column(name = "okta")
     private byte okta;
-    private CloudType cloudType;
-    private WindDirection windDirection;
-    // FK
-    private long station_id;
 
-    public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta, CloudType cloudType , WindDirection windDirection ){
-
+    public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta){
         this.date = date;
         this.airPressure = airPressure;
         this.humidity = humidity;
         this.windForce = windForce;
         this.cloudBase = cloudBase;
         this.okta = okta;
-        this.cloudType = cloudType;
-        this.windDirection = windDirection;
     }
 
     public Date getDate() {
@@ -81,21 +88,5 @@ public class WeatherInfo extends CoreEntity {
 
     public void setOkta(byte okta) {
         this.okta = okta;
-    }
-
-    public CloudType getCloudType() {
-        return cloudType;
-    }
-
-    public void setCloudType(CloudType cloudType) {
-        this.cloudType = cloudType;
-    }
-
-    public WindDirection getWindDirection() {
-        return windDirection;
-    }
-
-    public void setWindDirection(WindDirection windDirection) {
-        this.windDirection = windDirection;
     }
 }

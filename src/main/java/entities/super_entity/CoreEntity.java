@@ -9,6 +9,7 @@ import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class CoreEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;
