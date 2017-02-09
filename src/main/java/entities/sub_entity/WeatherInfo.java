@@ -2,9 +2,7 @@ package entities.sub_entity;
 
 import entities.super_entity.CoreEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
 
@@ -33,6 +31,13 @@ public class WeatherInfo extends CoreEntity {
     @Column(name = "okta")
     private byte okta;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "wind_direction_id")
+    private WindDirection windDirection;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cloud_type_id")
+    private CloudType cloudType;
+
     public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta){
         this.date = date;
         this.airPressure = airPressure;
@@ -40,6 +45,17 @@ public class WeatherInfo extends CoreEntity {
         this.windForce = windForce;
         this.cloudBase = cloudBase;
         this.okta = okta;
+    }
+
+    public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta , WindDirection windDirection , CloudType cloudType){
+        this.date = date;
+        this.airPressure = airPressure;
+        this.humidity = humidity;
+        this.windForce = windForce;
+        this.cloudBase = cloudBase;
+        this.okta = okta;
+        this.windDirection = windDirection;
+        this.cloudType = cloudType;
     }
 
     public Date getDate() {

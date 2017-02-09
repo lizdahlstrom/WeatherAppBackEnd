@@ -12,6 +12,11 @@ import java.util.List;
 @Entity
 @Table(name = "weather_station")
 public class WeatherStation extends CoreEntity {
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "weather_info_id")
+    private List<WeatherInfo> weatherReports = new ArrayList<>();
+
     @Column(name = "station_name")
     private String name;
 
@@ -27,4 +32,7 @@ public class WeatherStation extends CoreEntity {
         this.name = name;
     }
 
+    public List<WeatherInfo> getWeatherReports() {
+        return weatherReports;
+    }
 }

@@ -14,7 +14,8 @@ import javax.persistence.Table;
 @Table(name = "cloud_type")
 public class CloudType extends CoreEntity {
 
-    @Column(name = "cloud_type")
+
+    @Column(name = "cloud_type_name")
     private String name;
 
     public CloudType(String name){
@@ -28,6 +29,4 @@ public class CloudType extends CoreEntity {
     public void setName(String name) {
         this.name = name;
     }
-
-
 }
