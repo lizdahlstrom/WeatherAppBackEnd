@@ -1,4 +1,4 @@
-.gradle
+.gradle/
 build/
 
 # Ignore Gradle GUI config
@@ -20,7 +20,36 @@ gradle-app.setting
 .idea/modules/weather-app-api.iml
 .idea/vcs.xml
 .idea/workspace.xml
-build.gradle
 settings.gradle
-src/
-.idea/
+.idea/artifacts/
+.idea/compiler.xml
+.idea/libraries/
+.idea/modules/weather-app-api_main.iml
+.idea/modules/weather-app-api_test.iml
+.idea/sqldialects.xml
+.idea/uiDesigner.xml
+gradle/
+src/main/resources/
+src/test/
+argfile*
+pom.xml
+classes/
+/build
+buildSrc/build
+/spring-*/build
+/src/asciidoc/build
+target/
+
+# Eclipse artifacts, including WTP generated manifests
+.classpath
+.project
+spring-*/src/main/java/META-INF/MANIFEST.MF
+
+# IDEA artifacts and output dirs
+*.iml
+*.ipr
+*.iws
+.idea
+out
+test-output
+atlassian-ide-plugin.xml
