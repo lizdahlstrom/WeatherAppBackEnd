@@ -55,3 +55,4 @@ atlassian-ide-plugin.xml
 gradlew.bat
 gradlew
 /src/main/resources/application.properties
+src/main/resources/application.properties
