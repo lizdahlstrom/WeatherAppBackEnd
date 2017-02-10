@@ -29,7 +29,6 @@ settings.gradle
 .idea/sqldialects.xml
 .idea/uiDesigner.xml
 gradle/
-src/main/resources/
 src/test/
 argfile*
 pom.xml
