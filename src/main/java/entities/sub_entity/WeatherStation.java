@@ -14,7 +14,6 @@ import java.util.List;
 public class WeatherStation extends CoreEntity {
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "weather_info_id")
     private List<WeatherInfo> weatherReports = new ArrayList<>();
 
     @Column(name = "station_name")

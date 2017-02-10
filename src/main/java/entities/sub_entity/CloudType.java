@@ -18,8 +18,7 @@ public class CloudType extends CoreEntity {
 
     @Column(name = "cloud_type_name")
     private String name;
-
-    @OneToOne(mappedBy = "cloud_type")
+    @OneToOne
     private WeatherInfo weatherInfo;
 
     public CloudType(String name){

@@ -16,7 +16,7 @@ public class WindDirection extends CoreEntity {
 
     @Column(name = "direction")
     private String name;
-    @OneToOne(mappedBy = "wind_direction")
+    @OneToOne
     private WeatherInfo weatherInfo;
 
     public WindDirection(String name){
