@@ -54,3 +54,4 @@ test-output
 atlassian-ide-plugin.xml
 gradlew.bat
 gradlew
+/src/main/resources/application.properties
