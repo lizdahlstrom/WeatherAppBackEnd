@@ -19,8 +19,7 @@ public class User extends CoreEntity {
     @Column(name = "password")
     private String password;
 
-    public User(long id, String name, String password) {
-        super.id = id;
+    public User(String name, String password) {
         this.name = name;
         this.password = password;
     }
