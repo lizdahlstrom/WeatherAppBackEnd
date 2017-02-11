@@ -18,6 +18,7 @@ public class CloudType extends CoreEntity {
 
     @Column(name = "cloud_type_name")
     private String name;
+
     @OneToOne
     private WeatherInfo weatherInfo;
 

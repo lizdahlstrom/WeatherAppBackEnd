@@ -31,22 +31,14 @@ public class WeatherInfo extends CoreEntity {
     @Column(name = "okta")
     private byte okta;
 
-    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "wind_direction_id")
     private WindDirection windDirection;
 
-    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cloud_type_id")
     private CloudType cloudType;
 
-    public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta){
-        this.date = date;
-        this.airPressure = airPressure;
-        this.humidity = humidity;
-        this.windForce = windForce;
-        this.cloudBase = cloudBase;
-        this.okta = okta;
-    }
+    @ManyToOne()
+    private WeatherStation weatherStation;
 
     public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta , WindDirection windDirection , CloudType cloudType){
         this.date = date;
@@ -121,5 +113,13 @@ public class WeatherInfo extends CoreEntity {
 
     public void setWindDirection(WindDirection windDirection) {
         this.windDirection = windDirection;
+    }
+
+    public WeatherStation getWeatherStation() {
+        return weatherStation;
+    }
+
+    public void setWeatherStation(WeatherStation weatherStation) {
+        this.weatherStation = weatherStation;
     }
 }

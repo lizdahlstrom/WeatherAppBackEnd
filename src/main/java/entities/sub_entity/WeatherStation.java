@@ -4,7 +4,9 @@ import entities.super_entity.CoreEntity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Michael Sjögren on 2017-02-09.
@@ -14,7 +16,8 @@ import java.util.List;
 public class WeatherStation extends CoreEntity {
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<WeatherInfo> weatherReports = new ArrayList<>();
+    @JoinColumn(name = "weather_info_id")
+    private Set<WeatherInfo> weatherInfos = new HashSet<>();
 
     @Column(name = "station_name")
     private String name;
@@ -31,11 +34,4 @@ public class WeatherStation extends CoreEntity {
         this.name = name;
     }
 
-    public List<WeatherInfo> getWeatherReports() {
-        return weatherReports;
-    }
-
-    public void setWeatherReports(List<WeatherInfo> weatherReports) {
-        this.weatherReports = weatherReports;
-    }
 }
