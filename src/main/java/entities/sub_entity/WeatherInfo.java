@@ -31,9 +31,11 @@ public class WeatherInfo extends CoreEntity {
     @Column(name = "okta")
     private byte okta;
 
+    @OneToOne(optional = false , cascade = CascadeType.ALL)
     @JoinColumn(name = "wind_direction_id")
     private WindDirection windDirection;
 
+    @OneToOne(optional = false , cascade = CascadeType.ALL)
     @JoinColumn(name = "cloud_type_id")
     private CloudType cloudType;
 
