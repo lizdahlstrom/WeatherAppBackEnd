@@ -8,6 +8,6 @@ import java.util.List;
 /**
  * Created by Liz on 2017-02-09.
  */
-public interface WeatherInfoRepository extends CrudRepository <WeatherInfo, Integer> {
+public interface WeatherInfoRepository extends CrudRepository <WeatherInfo, Long> {
 
 }
