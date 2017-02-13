@@ -21,11 +21,12 @@ public class WeatherInfo extends CoreEntity {
     private String cloudType;
     private String windDirection;
     @ManyToOne
+    @JoinColumn(name = "weather_station_id")
     private WeatherStation weatherStation;
 
     public WeatherInfo(){}
 
-    public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta , String windDirection , String cloudType , WeatherStation weatherStation){
+    public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta , String windDirection , String cloudType ){
         this.date = date;
         this.airPressure = airPressure;
         this.humidity = humidity;

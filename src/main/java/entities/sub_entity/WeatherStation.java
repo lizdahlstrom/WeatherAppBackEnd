@@ -11,10 +11,10 @@ import java.util.*;
 @Entity
 public class WeatherStation extends CoreEntity {
 
-    @OneToMany
-    private Collection<WeatherInfo> weatherInfo = new ArrayList<>();
-
     private String name;
+
+    @OneToMany(targetEntity = WeatherInfo.class , mappedBy = "weatherStation" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    private List<WeatherInfo> weatherInfo = new ArrayList<>();
 
     public WeatherStation(){}
 
@@ -30,11 +30,12 @@ public class WeatherStation extends CoreEntity {
         this.name = name;
     }
 
-    public Collection<WeatherInfo> getWeatherInfo() {
+
+    public List<WeatherInfo> getWeatherInfo() {
         return weatherInfo;
     }
 
-    public void setWeatherInfo(Collection<WeatherInfo> weatherInfo) {
+    public void setWeatherInfo(List<WeatherInfo> weatherInfo) {
         this.weatherInfo = weatherInfo;
     }
 }
