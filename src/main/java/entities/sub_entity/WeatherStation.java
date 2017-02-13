@@ -1,5 +1,6 @@
 package entities.sub_entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import entities.super_entity.CoreEntity;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class WeatherStation extends CoreEntity {
     private String name;
 
     @OneToMany(targetEntity = WeatherInfo.class , mappedBy = "weatherStation" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<WeatherInfo> weatherInfo = new ArrayList<>();
 
     public WeatherStation(){}

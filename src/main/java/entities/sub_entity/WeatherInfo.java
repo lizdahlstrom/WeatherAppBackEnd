@@ -1,5 +1,6 @@
 package entities.sub_entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import entities.super_entity.CoreEntity;
 
 import javax.persistence.*;
@@ -23,6 +24,7 @@ public class WeatherInfo extends CoreEntity {
     private String windDirection;
     @ManyToOne
     @JoinColumn(name = "weather_station_id")
+    @JsonBackReference
     private WeatherStation weatherStation;
 
     public WeatherInfo(){}
