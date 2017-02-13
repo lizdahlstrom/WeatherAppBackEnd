@@ -110,4 +110,11 @@ public class WeatherInfo extends CoreEntity {
     public void setWeatherStation(WeatherStation weatherStation) {
         this.weatherStation = weatherStation;
     }
+
+    public double getTemp() {
+        return temp;
+    }
+    public void setTemp(double temp) {
+        this.temp = temp;
+    }
 }
