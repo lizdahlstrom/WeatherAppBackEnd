@@ -3,10 +3,7 @@ package restapi.weatherinfo;
 import entities.sub_entity.WeatherInfo;
 import entities.sub_entity.WeatherStation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import repository.WeatherInfoRepository;
 
 import java.sql.Date;
@@ -22,6 +19,13 @@ import java.sql.Date;
 public class WeatherInfoController {
 
     @Autowired
-    private WeatherInfoRepository weatherInfoRepository;
+    private WeatherInfoRepository repository;
+
+    @RequestMapping(value = "/weather-info/create" , method = RequestMethod.POST , produces = "application/json")
+    public void createWeatherInfo(@RequestBody WeatherInfo weatherInfo){
+        // TODO: koppla relationen mellan weather info och weather station
+        // skapar en väder info men weather_station_id förblir null och skapar inte relation mellan station och info
+        repository.save(weatherInfo);
+    }
     
 }

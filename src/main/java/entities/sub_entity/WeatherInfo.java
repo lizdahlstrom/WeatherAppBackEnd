@@ -35,7 +35,6 @@ public class WeatherInfo extends CoreEntity {
         this.okta = okta;
         this.windDirection = windDirection;
         this.cloudType = cloudType;
-        this.weatherStation = weatherStation;
     }
 
     public Date getDate() {
