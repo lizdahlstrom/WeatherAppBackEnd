@@ -23,4 +23,19 @@ public class WeatherStationController {
     public void createWeatherStation(@RequestBody WeatherStation weatherStation){
             repository.save(weatherStation);
     }
+
+    @RequestMapping(value = "/weather-station/" , method = RequestMethod.GET , produces = "application/json")
+    public ArrayList<WeatherStation> getAllWeatherStations(){
+        ArrayList<WeatherStation> stations = new ArrayList<>();
+        repository.findAll().forEach(stations :: add );
+        return stations;
+    }
+
+    @RequestMapping(value = "/weather-station/{id}" , method = RequestMethod.GET , produces = "application/json")
+    public WeatherStation getAllWeatherStations(@PathVariable long id){
+
+        WeatherStation weatherStation = repository.findOne(id);
+        return weatherStation;
+    }
+
 }
