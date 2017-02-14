@@ -14,10 +14,12 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User extends CoreEntity {
 
-    @Column(name = "username")
+    @Column(unique = true, name = "username")
     private String name;
     @Column(name = "password")
     private String password;
+
+    public User(){}
 
     public User(String name, String password) {
         this.name = name;
