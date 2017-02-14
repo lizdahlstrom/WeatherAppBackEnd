@@ -29,6 +29,7 @@ public class WeatherInfoController {
         repository.save(weatherInfo);
     }
 
+    // get all weather reports by weatherstation id
     @RequestMapping(path = "/weather-station/{id}/weather-info" , method = RequestMethod.GET , produces = "application/json")
     public ArrayList<WeatherInfo> getWeatherReports(@PathVariable long id){
         ArrayList<WeatherInfo> weatherReports = new ArrayList<>();
@@ -36,25 +37,30 @@ public class WeatherInfoController {
         return weatherReports;
     }
 
-    @RequestMapping("/weather-station/{stationID}/weather-info/{id}")
-    public WeatherInfo getWeatherReport(@PathVariable long id){
-        return repository.findOne(id);
-    }
-
+    // create
     @RequestMapping(method = RequestMethod.POST , value = "/weather-station/{stationId}/weather-info/")
     public void addWeatherReport(@RequestBody WeatherInfo weatherInfo , @PathVariable long stationId){
-        weatherInfo.setWeatherStation(new WeatherStation(""));
+
+        WeatherStation weatherStation = new WeatherStation("");
+        weatherStation.setID(stationId);
+        weatherInfo.setWeatherStation(weatherStation);
         repository.save(weatherInfo);
     }
 
+    // update
     @RequestMapping(method = RequestMethod.POST , value = "/weather-station/{stationId}/weather-info/{id}")
     public void updateWeatherReport(@RequestBody WeatherInfo weatherInfo , @PathVariable long stationId){
         weatherInfo.setWeatherStation(new WeatherStation(""));
         repository.save(weatherInfo);
     }
-
+    // find by id
     @RequestMapping(value = "/weather-station/{stationId}/weather-info/{id}" , method = RequestMethod.GET)
     public ArrayList<WeatherInfo> findById(@PathVariable long id){
         return repository.findById(id);
+    }
+
+    @RequestMapping(value = "/weather-station/{stationId}/weather-info/{id}" , method = RequestMethod.DELETE)
+    public void delete(@PathVariable long id){
+         repository.delete(id);
     }
 }

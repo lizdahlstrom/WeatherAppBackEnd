@@ -22,7 +22,7 @@ public class WeatherInfo extends CoreEntity {
     private byte okta;
     private String cloudType;
     private String windDirection;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "weather_station_id")
     @JsonBackReference
     private WeatherStation weatherStation;
