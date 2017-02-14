@@ -48,6 +48,11 @@ public class LoginController {
             return loginRepository.findOne(id);
     }
 
+    @RequestMapping(value = "/login/findUserByName/{name}", method = RequestMethod.GET)
+    public User findById(@PathVariable String name){
+        return loginRepository.findByNameIn(name);
+    }
+
     @RequestMapping(value = "/login/newUser", method = RequestMethod.POST)
     public void submitUser(User user){
         loginRepository.save(user);
