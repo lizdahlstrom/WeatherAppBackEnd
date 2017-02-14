@@ -2,12 +2,10 @@ package restapi.weatherstation;
 
 import entities.sub_entity.WeatherStation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import repository.WeatherStationRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Michael Sjögren on 2017-02-13.
@@ -18,24 +16,35 @@ public class WeatherStationController {
 
     @Autowired
     private WeatherStationRepository repository;
-
+    /** Create weather station **/
     @RequestMapping(value = "/weather-station/" , method = RequestMethod.POST , produces = "application/json")
     public void createWeatherStation(@RequestBody WeatherStation weatherStation){
             repository.save(weatherStation);
     }
-
+    /** Get all weather stations **/
     @RequestMapping(value = "/weather-station/" , method = RequestMethod.GET , produces = "application/json")
     public ArrayList<WeatherStation> getAllWeatherStations(){
         ArrayList<WeatherStation> stations = new ArrayList<>();
         repository.findAll().forEach(stations :: add );
         return stations;
     }
-
+    /** Get weather stations by id **/
     @RequestMapping(value = "/weather-station/{id}" , method = RequestMethod.GET , produces = "application/json")
-    public WeatherStation getAllWeatherStations(@PathVariable long id){
-
+    public WeatherStation getStationById(@PathVariable long id){
         WeatherStation weatherStation = repository.findOne(id);
         return weatherStation;
+    }
+
+    /** Update weatherStation **/
+    @RequestMapping(value = "/weather-station/" , method = RequestMethod.PUT , produces = "application/json")
+    public void updateWeatherStation(@RequestBody WeatherStation weatherStation){
+        repository.save(weatherStation);
+    }
+
+    /** Delete weather station by id **/
+    @RequestMapping(value = "/weather-station/{id}" , method = RequestMethod.PUT , produces = "application/json")
+    public void deleteWeatherStation(@PathVariable long id){
+        repository.delete(id);
     }
 
 }
