@@ -18,11 +18,11 @@ public class WeatherStationController {
     private WeatherStationRepository repository;
     /** Create weather station **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-station/" , method = RequestMethod.POST , produces = "application/json")
-    public String createWeatherStation(@RequestBody WeatherStation weatherStation){
+    @RequestMapping(value = "/weather-station/" , method = RequestMethod.POST)
+    public void createWeatherStation(@RequestBody WeatherStation weatherStation){
             repository.save(weatherStation);
-            return "Created station successfully!";
     }
+    
     /** Get all weather stations **/
     @CrossOrigin
     @RequestMapping(value = "/weather-station/" , method = RequestMethod.GET , produces = "application/json")
