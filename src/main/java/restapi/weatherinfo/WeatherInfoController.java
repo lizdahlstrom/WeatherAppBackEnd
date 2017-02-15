@@ -25,9 +25,7 @@ public class WeatherInfoController {
     @CrossOrigin
     @RequestMapping(path = "/weather-station/{id}/weather-info" , method = RequestMethod.GET , produces = "application/json")
     public ArrayList<WeatherInfo> getWeatherInfos(@PathVariable long id){
-        ArrayList<WeatherInfo> weatherInfos = new ArrayList<>();
-        repository.findByWeatherStationId(id);
-        return weatherInfos;
+        return repository.findByWeatherStationId(id);
     }
 
 
