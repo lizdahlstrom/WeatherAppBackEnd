@@ -44,20 +44,20 @@ public class WeatherInfoController {
 
     /** Update weather info **/
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.PUT , value = "/weather-station/{stationId}/weather-info/")
+    @RequestMapping(method = RequestMethod.PUT , value = "/weather-info/")
     public void updateWeatherInfo(@RequestBody WeatherInfo weatherInfo){
         repository.save(weatherInfo);
     }
 
     /** Find weather info by id **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-station/{stationId}/weather-info/{id}" , method = RequestMethod.GET)
+    @RequestMapping(value = "/weather-info/{id}" , method = RequestMethod.GET)
     public ArrayList<WeatherInfo> findById(@PathVariable long id){
         return repository.findById(id);
     }
     /** Delete weather info by id **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-station/{stationId}/weather-info/{id}" , method = RequestMethod.DELETE)
+    @RequestMapping(value = "/weather-info/{id}" , method = RequestMethod.DELETE)
     public void delete(@PathVariable long id){
          repository.delete(id);
     }
