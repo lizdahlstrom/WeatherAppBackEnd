@@ -19,8 +19,9 @@ public class WeatherStationController {
     /** Create weather station **/
     @CrossOrigin
     @RequestMapping(value = "/weather-station/" , method = RequestMethod.POST , produces = "application/json")
-    public void createWeatherStation(@RequestBody WeatherStation weatherStation){
+    public String createWeatherStation(@RequestBody WeatherStation weatherStation){
             repository.save(weatherStation);
+            return "Created station successfully!";
     }
     /** Get all weather stations **/
     @CrossOrigin
@@ -32,7 +33,7 @@ public class WeatherStationController {
     }
     /** Get weather stations by id **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-station/{id}" , method = RequestMethod.GET , produces = "application/json")
+    @RequestMapping(value = "/weather-station/{id}/" , method = RequestMethod.GET , produces = "application/json")
     public WeatherStation getStationById(@PathVariable long id){
         WeatherStation weatherStation = repository.findOne(id);
         return weatherStation;
@@ -41,15 +42,17 @@ public class WeatherStationController {
     /** Update weatherStation **/
     @CrossOrigin
     @RequestMapping(value = "/weather-station/" , method = RequestMethod.PUT , produces = "application/json")
-    public void updateWeatherStation(@RequestBody WeatherStation weatherStation){
+    public String updateWeatherStation(@RequestBody WeatherStation weatherStation){
         repository.save(weatherStation);
+        return "updated station" + weatherStation.getID() + "successfully!";
     }
 
     /** Delete weather station by id **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-station/{id}" , method = RequestMethod.PUT , produces = "application/json")
-    public void deleteWeatherStation(@PathVariable long id){
+    @RequestMapping(value = "/weather-station/{id}/" , method = RequestMethod.PUT )
+    public String deleteWeatherStation(@PathVariable long id){
         repository.delete(id);
+        return "Deleted station with id: " + id + " successfully!";
     }
 
 }
