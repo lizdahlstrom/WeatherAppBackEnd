@@ -28,22 +28,21 @@ public class WeatherInfoController {
         return repository.findByWeatherStationId(id);
     }
 
-
     /** Create weather info **/
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.POST , value = "/weather-station/{stationId}/weather-info/")
-    public String addWeatherInfo(@RequestBody WeatherInfo weatherInfo , @PathVariable long stationId){
+    @RequestMapping(method = RequestMethod.POST , value = "/weather-station/{stationId}/weather-info/" , produces = "application/json")
+    public String addWeatherInfo(@RequestBody WeatherInfo weatherInfo , @PathVariable long stationId ){
 
         WeatherStation weatherStation = new WeatherStation("");
         weatherStation.setID(stationId);
         weatherInfo.setWeatherStation(weatherStation);
         repository.save(weatherInfo);
-        return "Create successful!";
+        return "Created weather data successfully!";
     }
 
     /** Update weather info **/
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.PUT , value = "/weather-info/")
+    @RequestMapping(method = RequestMethod.PUT , value = "/weather-info/" , produces = "application/json")
     public String updateWeatherInfo(@RequestBody WeatherInfo weatherInfo){
         repository.save(weatherInfo);
         return "Update successful!";
@@ -58,7 +57,7 @@ public class WeatherInfoController {
     }
     /** Delete weather info by id **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-info/{id}/" , method = RequestMethod.DELETE)
+    @RequestMapping(value = "/weather-info/{id}/" , method = RequestMethod.DELETE , produces = "application/json")
     public String delete(@PathVariable long id){
          repository.delete(id);
          return "Delete successful!";

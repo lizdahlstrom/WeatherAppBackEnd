@@ -49,7 +49,7 @@ public class WeatherStationController {
 
     /** Delete weather station by id **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-station/{id}/" , method = RequestMethod.PUT )
+    @RequestMapping(value = "/weather-station/{id}/" , method = RequestMethod.PUT  , produces = "application/json")
     public String deleteWeatherStation(@PathVariable long id){
         repository.delete(id);
         return "Deleted station with id: " + id + " successfully!";
