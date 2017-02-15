@@ -41,18 +41,16 @@ public class WeatherStationController {
 
     /** Update weatherStation **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-station/" , method = RequestMethod.PUT , produces = "application/json")
-    public String updateWeatherStation(@RequestBody WeatherStation weatherStation){
+    @RequestMapping(value = "/weather-station/" , method = RequestMethod.PUT )
+    public void updateWeatherStation(@RequestBody WeatherStation weatherStation){
         repository.save(weatherStation);
-        return "updated station" + weatherStation.getID() + "successfully!";
     }
 
     /** Delete weather station by id **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-station/{id}/" , method = RequestMethod.PUT  , produces = "application/json")
-    public String deleteWeatherStation(@PathVariable long id){
+    @RequestMapping(value = "/weather-station/{id}/" , method = RequestMethod.PUT )
+    public void deleteWeatherStation(@PathVariable long id){
         repository.delete(id);
-        return "Deleted station with id: " + id + " successfully!";
     }
 
 }
