@@ -22,7 +22,7 @@ public class WeatherStationController {
     public void createWeatherStation(@RequestBody WeatherStation weatherStation){
             repository.save(weatherStation);
     }
-    
+
     /** Get all weather stations **/
     @CrossOrigin
     @RequestMapping(value = "/weather-station/" , method = RequestMethod.GET , produces = "application/json")
@@ -48,7 +48,7 @@ public class WeatherStationController {
 
     /** Delete weather station by id **/
     @CrossOrigin
-    @RequestMapping(value = "/weather-station/{id}/" , method = RequestMethod.PUT )
+    @RequestMapping(value = "/weather-station/{id}/" , method = RequestMethod.DELETE )
     public void deleteWeatherStation(@PathVariable long id){
         repository.delete(id);
     }
