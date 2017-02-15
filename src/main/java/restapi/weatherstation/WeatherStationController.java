@@ -17,11 +17,13 @@ public class WeatherStationController {
     @Autowired
     private WeatherStationRepository repository;
     /** Create weather station **/
+    @CrossOrigin
     @RequestMapping(value = "/weather-station/" , method = RequestMethod.POST , produces = "application/json")
     public void createWeatherStation(@RequestBody WeatherStation weatherStation){
             repository.save(weatherStation);
     }
     /** Get all weather stations **/
+    @CrossOrigin
     @RequestMapping(value = "/weather-station/" , method = RequestMethod.GET , produces = "application/json")
     public ArrayList<WeatherStation> getAllWeatherStations(){
         ArrayList<WeatherStation> stations = new ArrayList<>();
@@ -29,6 +31,7 @@ public class WeatherStationController {
         return stations;
     }
     /** Get weather stations by id **/
+    @CrossOrigin
     @RequestMapping(value = "/weather-station/{id}" , method = RequestMethod.GET , produces = "application/json")
     public WeatherStation getStationById(@PathVariable long id){
         WeatherStation weatherStation = repository.findOne(id);
@@ -36,12 +39,14 @@ public class WeatherStationController {
     }
 
     /** Update weatherStation **/
+    @CrossOrigin
     @RequestMapping(value = "/weather-station/" , method = RequestMethod.PUT , produces = "application/json")
     public void updateWeatherStation(@RequestBody WeatherStation weatherStation){
         repository.save(weatherStation);
     }
 
     /** Delete weather station by id **/
+    @CrossOrigin
     @RequestMapping(value = "/weather-station/{id}" , method = RequestMethod.PUT , produces = "application/json")
     public void deleteWeatherStation(@PathVariable long id){
         repository.delete(id);
