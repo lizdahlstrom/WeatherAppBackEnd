@@ -30,14 +30,14 @@ public class WeatherInfoController {
 
     /** Create weather info **/
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.POST , value = "/weather-station/{stationId}/weather-info/" , produces = "application/json")
-    public String addWeatherInfo(@RequestBody WeatherInfo weatherInfo , @PathVariable long stationId ){
+    @RequestMapping(method = RequestMethod.POST , value = "/weather-station/{stationId}/weather-info/")
+    public void addWeatherInfo(@RequestBody WeatherInfo weatherInfo , @PathVariable long stationId ){
 
         WeatherStation weatherStation = new WeatherStation("");
         weatherStation.setID(stationId);
         weatherInfo.setWeatherStation(weatherStation);
         repository.save(weatherInfo);
-        return "Created weather data successfully!";
+
     }
 
     /** Update weather info **/
