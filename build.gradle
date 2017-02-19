@@ -27,6 +27,13 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-rest'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'mysql:mysql-connector-java:5.1.37'
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "org.springframework:spring-context:4.3.6.RELEASE"
+
+    compile"org.springframework.boot:spring-boot-starter-security"
+    testCompile "org.springframework:spring-test:4.3.6.RELEASE"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "org.springframework.boot:spring-boot-starter-security"
+
+
+    testCompile  'group: 'junit', name: 'junit', version:4.11'
 }
