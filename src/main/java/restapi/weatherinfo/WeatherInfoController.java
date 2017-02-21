@@ -61,9 +61,7 @@ public class WeatherInfoController {
     /**  **/
     @CrossOrigin
     @RequestMapping(value = "/weather-info/" , method = RequestMethod.GET)
-    public List<WeatherInfo> getAllWeatherInfo(@PathVariable long id){
-        List<WeatherInfo> weatherInfos = new ArrayList<>();
-        repository.findAll().forEach(weatherInfos :: add );
-        return weatherInfos;
+    public List<WeatherInfo> getAllWeatherInfo(){
+        return repository.findAll();
     }
 }

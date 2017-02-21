@@ -11,6 +11,8 @@ import java.util.List;
  * Created by Liz on 2017-02-09.
  */
 public interface WeatherInfoRepository extends CrudRepository <WeatherInfo, Long> {
+
+    ArrayList<WeatherInfo> findAll();
     ArrayList<WeatherInfo> findById(long id);
     ArrayList<WeatherInfo> findByWeatherStationId(long id);
     ArrayList<WeatherInfo> findByDate(Date date);
