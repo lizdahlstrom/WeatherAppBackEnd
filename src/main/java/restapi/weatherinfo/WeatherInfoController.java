@@ -57,4 +57,13 @@ public class WeatherInfoController {
     public void delete(@PathVariable long id){
          repository.delete(id);
     }
+
+    /**  **/
+    @CrossOrigin
+    @RequestMapping(value = "/weather-info/" , method = RequestMethod.GET)
+    public List<WeatherInfo> getAllWeatherInfo(@PathVariable long id){
+        List<WeatherInfo> weatherInfos = new ArrayList<>();
+        repository.findAll().forEach(weatherInfos :: add );
+        return weatherInfos;
+    }
 }
