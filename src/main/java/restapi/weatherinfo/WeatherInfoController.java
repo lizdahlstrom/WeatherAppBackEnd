@@ -40,8 +40,11 @@ public class WeatherInfoController {
 
     /** Update weather info **/
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.PUT , value = "/weather-info/" )
-    public void updateWeatherInfo(@RequestBody WeatherInfo weatherInfo){
+    @RequestMapping(method = RequestMethod.PUT , value = "/weather-station/{id}/weather-info/" )
+    public void updateWeatherInfo(@RequestBody WeatherInfo weatherInfo , @PathVariable long id){
+        WeatherStation weatherStation = new WeatherStation("");
+        weatherStation.setID(id);
+        weatherInfo.setWeatherStation(weatherStation);
         repository.save(weatherInfo);
     }
 
