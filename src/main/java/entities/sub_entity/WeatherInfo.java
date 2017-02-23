@@ -14,7 +14,7 @@ import java.sql.Date;
 public class WeatherInfo extends CoreEntity {
 
     private double temp;
-    private Date date;
+    private String date;
     private int airPressure;
     private byte humidity;
     private double windForce;
@@ -29,7 +29,7 @@ public class WeatherInfo extends CoreEntity {
 
     public WeatherInfo(){}
 
-    public WeatherInfo(Date date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta , String windDirection , String cloudType , double temp ){
+    public WeatherInfo(String date , int airPressure , byte humidity , double windForce , int cloudBase , byte okta , String windDirection , String cloudType , double temp ){
         this.date = date;
         this.airPressure = airPressure;
         this.humidity = humidity;
@@ -41,11 +41,11 @@ public class WeatherInfo extends CoreEntity {
         this.temp = temp;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+        public void setDate(String date) {
         this.date = date;
     }
 
